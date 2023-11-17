@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 // static char *font = "Liberation Mono:pixelsize=20:antialias=true:autohint=true";
-static char *font = "JetBrainsMonoNL NF:pixelsize=20:antialias=true:autohint=true";
+static char *font = "Monospace-11:antialias=true:autohint=true";
 static int borderpx = 10;
 
 /*
@@ -92,37 +92,37 @@ char *termname = "st-256color";
  *
  *	stty tabs
  */
-unsigned int tabspaces = 8;
+unsigned int tabspaces = 4;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
+    /* 8 normal colors */
+	"#3b4252",
+	"#bf616a",
+	"#a3be8c",
+	"#ebcb8b",
+	"#81a1c1",
+	"#b48ead",
+	"#88c0d0",
+	"#e5e9f0",
 
 	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
+	"#4c566a",
+	"#bf616a",
+	"#a3be8c",
+	"#ebcb8b",
+	"#81a1c1",
+	"#b48ead",
+	"#8fbcbb",
+	"#eceff4",
 
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
-	"gray90", /* default foreground colour */
-	"black", /* default background colour */
+	"#d8dee9", // cs
+	"#3b4252", // rcs
+	"#d8dee9", // fg
+	"#242933", // bg
 };
 
 
@@ -197,15 +197,13 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
 	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
 	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
-	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
-	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
-	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
-	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
+	{ TERMMOD,              XK_Y,           clipcopy,       {.i =  0} },
+	{ TERMMOD,              XK_P,           clippaste,      {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
 	{ TERMMOD,              XK_U,           kscrollup,      {.i = -1} },
 	{ TERMMOD,              XK_D,           kscrolldown,    {.i = -1} },
-	{ TERMMOD,              XK_J,           kscrollup,      {.i = 1} },
-	{ TERMMOD,              XK_K,           kscrolldown,    {.i = 1} },
+	{ TERMMOD,              XK_K,           kscrollup,      {.i = 1} },
+	{ TERMMOD,              XK_J,           kscrolldown,    {.i = 1} },
 };
 
 /*
